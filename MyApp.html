@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="SprinklrApp">
+<head>
+    <title></title>
+    <link href="CSS/MyApp.css" rel="stylesheet" />
+    <link href="CSS/Table.css" rel="stylesheet" />
+
+    <script src="JS/angular.js"></script>
+    <script src="JS/EmployeeInfo.js"></script>
+    <script src="JS/MyApp.js"></script>
+</head>
+<body class="GrayColor">
+
+    <div id="MainContainer" class="WhiteColor" ng-controller="SprinklrController as SprklCtrl">
+        <div class="GrayColor">
+            <div class="Round Logo">
+                <div class="Spot">Spot</div>
+            </div>
+            <div id="ReportTitle">
+                <span class="title">Sprinklr office</span>
+                <span class="filter border" ng-hide="1">
+                    <img class="image border" src="Images/Filter.PNG" />
+                </span>
+                <div class="Search border">
+                    <input class="inputBox border" type="text" placeholder="Search"
+                           ng-model="searchName"
+                           ng-focus="SprklCtrl.SearchStart()"
+                           ng-blur="SprklCtrl.SearchEnd()" />
+                    <img class="image border" src="Images/Search.png" alt="" />
+                </div>
+            </div>
+        </div>
+        <div class="ReportSection">
+            <div ng-controller="TableController as tableCtrl">
+                <div id="tableSection">
+                    <div ng-include="'Template/Table.html'" ng-repeat="table in tables"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
